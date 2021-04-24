@@ -1,6 +1,8 @@
 /*================ IMPORTS ================*/
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { PagesComponent } from './pages.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 /*================ COMPONENTS ================*/
 
@@ -8,7 +10,14 @@ import { NgModule } from '@angular/core';
 
 const PAGES_ROUTES: Routes = [
     {
-        path: '',
+        path: 'dashboard',
+        component: PagesComponent,
+        children: [
+            {
+                path: 'tasks',
+                component: TasksComponent
+            }
+        ]
     },
 ];
 

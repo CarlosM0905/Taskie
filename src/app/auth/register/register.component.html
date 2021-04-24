@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <nz-card class="card-register">
+                <p class="title-app mb-0">Taskie</p>
+                <p>¡Registrate y comienza a organizar tus tareas ya! :)</p>
+                <form [formGroup]="formRegister" nz-form nzLayout='vertical' autocomplete="off">
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="username" nzRequired>Usuario</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="username" type="text" id="username" formControlName="username">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="email" nzRequired>Correo</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="email" type="email" id="email" formControlName="email">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="name" nzRequired>Nombre Completo</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="name" type="text" id="name" formControlName="name">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="password" nzRequired>Contraseña</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="password" type="password" id="password" formControlName="password"/>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="20" nzFor="password-confirm" nzRequired>Confirmar Contraseña</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="password-confirm" type="password" id="password-confirm" formControlName="passwordRepeat"/>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <button nz-button nzType="primary" nzBlock (click)="register()" [disabled]="this.formRegister.invalid">Registrarme</button>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-button-group>
+                            <button nz-button nzType="danger" nzBlock>
+                                <p class="d-flex justify-content-center align-items-center"><i nz-icon nzType="google" class="pr-2" nzTheme="outline"></i>Registrarme
+                                    con Google</p>
+                            </button>
+                        </nz-button-group>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <p class="text-center not-logged mb-0" [routerLink]="['/login']">¡Quiero ingresar!</p>
+                    </nz-form-item>
+                </form>
+            </nz-card>
+        </div>
+        <div class="col-5 px-0">
+            <img src="assets/images/cover-register.jpg" class="img-fluid cover-register-img" alt="Cover Login">
+        </div>
+    </div>
+</div>

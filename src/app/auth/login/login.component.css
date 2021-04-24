@@ -1,0 +1,27 @@
+.cover-login-img{
+    max-height: 100vh;
+    object-fit: cover;
+    min-width: 50vw;
+}
+
+.title-app{
+   font-family: 'Lato';
+   font-weight: bolder;
+   font-size: 2.5rem; 
+}
+
+.not-registered{
+    cursor: pointer;
+    outline: none;
+}
+
+.not-registered:hover{
+    color: dodgerblue;
+}
+
+.card-login{
+    border: none;
+    box-shadow: 1px 1px 20px #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}

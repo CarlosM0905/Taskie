@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5 px-0">
+            <img src="assets/images/cover-login.jpg" class="img-fluid cover-login-img" alt="Cover Login">
+        </div>
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <nz-card class="card-login">
+                <p class="title-app mb-0">Taskie</p>
+                <p>Ingresa y escribe tus tareas de manera facil y organizada :)</p>
+                <form [formGroup]="formLogin" nz-form nzLayout='vertical' autocomplete="off">
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="username" nzRequired>Usuario</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="username" type="text" id="username" formControlName="username">
+                        </nz-form-control>
+
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="14" nzFor="password" nzRequired>Contraseña</nz-form-label>
+                        <nz-form-control [nzSpan]="24">
+                            <input nz-input name="password" type="password" id="password" formControlName="password" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <button nz-button nzType="primary" nzBlock (click)="login()">Ingresar</button>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-button-group>
+                            <button nz-button nzType="danger" nzBlock>
+                                <p class="d-flex justify-content-center align-items-center"><i nz-icon nzType="google" class="pr-2" nzTheme="outline"></i>Ingresar
+                                    con Google</p>
+                            </button>
+                        </nz-button-group>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <p class="text-center not-registered mb-0" [routerLink]="['/register']" >¿No tienes una cuenta?</p>
+                    </nz-form-item>
+                </form>
+            </nz-card>
+        </div>
+    </div>
+</div>

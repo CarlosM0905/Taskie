@@ -8,6 +8,13 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 
 /*================ MODULE COMPONENTS ================*/
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+
 
 /*================ CONST ICONS ================*/
 
@@ -19,7 +26,14 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
   (key) => antDesignIcons[key]
 );
 
-const NG_ZORRO_COMPONENTS = [];
+const NG_ZORRO_COMPONENTS = [
+  NzCardModule,
+  NzInputModule,
+  NzFormModule,
+  NzButtonModule,
+  NzIconModule,
+  NzDividerModule
+];
 
 @NgModule({
   imports: [...NG_ZORRO_COMPONENTS],

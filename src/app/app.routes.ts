@@ -3,6 +3,7 @@ import { AuthRoutingModule } from './auth/auth.routes';
 /*================ IMPORTS ================*/
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 /*================ COMPONENTS ================*/
 
@@ -13,6 +14,9 @@ const APP_ROUTES: Routes = [
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
     },
+    {
+        path: '**', component: NotFoundComponent
+    }
 ];
 
 @NgModule({

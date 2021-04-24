@@ -1,0 +1,43 @@
+.header-tasks{
+    background-color: #154360;
+    margin: 10px 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #ccc;
+}
+
+.action-header{
+    cursor: pointer;
+}
+
+
+.create-task-entry{
+    margin: 10px 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #ccc;
+}
+
+.input-title{
+    border: none;
+    box-shadow: none;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    font-family: 'Lato';
+}
+
+.textarea-description{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 55vh;
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+.img-task{
+    margin: 15px;
+    height: 20vh;
+    width: 10vw;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}

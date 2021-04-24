@@ -1,0 +1,35 @@
+.sidebar-tasks{
+    height: 97.5vh;
+    background: rgb(63,120,208);
+    background: linear-gradient(56deg, rgba(63,120,208,1) 23%, rgba(97,146,221,1) 100%);
+    margin: 10px 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #ccc;
+}
+
+.add-task{
+    font-size: 5rem;
+    cursor: pointer;
+    transition: font-size .2s ease-in;
+}
+
+.task-list{
+    max-height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.add-task:hover{
+    font-size: 5.125rem;
+}
+
+.text-logout {
+    cursor: pointer;
+    color: white;
+}
+
+.text-logout:hover {
+    color: red;
+    text-decoration: underline;
+}
+

@@ -1,0 +1,23 @@
+<div class="row sidebar-tasks">
+    <div class="col-12">
+        <div class="row d-flex justify-content-between">
+            <div class="col-4">
+                <p class="d-flex align-items-center mb-0 py-2 text-white"><i nz-icon nzType="user" nzTheme="outline" class="mr-2"></i> {{user.user_name}}</p>
+            </div>
+            <div class="col-6">
+                <p class="text-right py-2 mb-0 text-logout" (click)="logout()">Cerrar sesión</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center mt-5"><i nz-icon nzType="form" class="text-white add-task" nzTheme="outline"></i></p>
+                <p class="mb-3 text-center text-white">Escribir tarea</p>
+            </div>
+        </div>
+        <div class="row task-list">
+            <div *ngFor="let i of [1,2,3,4, 5, 6, 7]" class="col-12">
+                <app-task></app-task>
+            </div>
+        </div>
+    </div>
+</div>

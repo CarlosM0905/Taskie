@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NgZorroModule } from 'src/ng-zorro/ng-zorro.module';
 
 /*================ COMPONENTS ================*/
 
@@ -11,12 +14,13 @@ import { CommonModule } from '@angular/common';
 /*================ MODULES ================*/
 
 const AUTH_COMPONENTS = [
-
+    LoginComponent,
+    RegisterComponent
 ];
 
 @NgModule({
     declarations: [
-        ...AUTH_COMPONENTS
+        ...AUTH_COMPONENTS,
     ],
     exports: [
         ...AUTH_COMPONENTS
@@ -25,7 +29,8 @@ const AUTH_COMPONENTS = [
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
-        RouterModule
+        RouterModule,
+        NgZorroModule
       ],
   })
 export class AuthModule{}

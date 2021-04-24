@@ -8,6 +8,8 @@ import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
 import { AuthModule } from './auth/auth.module';
+import { ServicesModule } from './services/services.module';
+
 import { AppRoutingModule } from './app.routes';
 
 /*================ COMPONENTS ================*/
@@ -24,7 +26,8 @@ import { AppComponent } from './app.component';
     PagesModule,
     NgZorroModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

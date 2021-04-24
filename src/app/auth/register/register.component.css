@@ -1,0 +1,27 @@
+.cover-register-img{
+    min-height: 100vh;
+    object-fit: cover;
+    min-width: 100%;
+}
+
+.title-app{
+    font-family: 'Lato';
+    font-weight: bolder;
+    font-size: 2.5rem; 
+ }
+
+ .not-logged{
+    cursor: pointer;
+    outline: none;
+}
+
+.not-logged:hover{
+    color: dodgerblue;
+}
+
+.card-register{
+    border: none;
+    box-shadow: 1px 1px 20px #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}

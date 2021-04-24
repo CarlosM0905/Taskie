@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row d-flex justify-content-end header-tasks">
+            <div class="col-4 d-flex justify-content-end">
+                <p class="action-header d-flex align-items-center text-white my-3 mr-2"><i class="mr-2" nz-icon
+                        nzType="save" nzTheme="outline"></i>Guardar</p>
+                <p class="action-header d-flex align-items-center text-white my-3"><i class="mr-2" nz-icon
+                        nzType="delete" nzTheme="outline"></i>Eliminar</p>
+            </div>
+        </div>
+        <div class="row create-task-entry" >
+            <div class="col-12 d-flex flex-column">
+                <form class="py-2" nz-form nzLayout='vertical'>
+                    <nz-form-item class="mb-0">
+                        <nz-form-control>
+                            <input class="input-title" placeholder="Un título maravilloso" nz-input name="title" type="text" id="title">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <textarea class="textarea-description" placeholder="Una descripción fabulosa" name="description" id="description" cols="30" rows="10"></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+                <input type="file" class="d-none" id="fileTask" #fileTask (change)="handleChangeFile($event)">
+                <img src="https://bit.ly/3gtuxVT" class="img-task" alt="Image Task" (click)='fileTask.click()'>
+            </div>
+        </div>
+    </div>
+</div>
