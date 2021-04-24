@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { Task } from 'src/app/models/task.model';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class SidebarComponent implements OnInit, OnChanges {
   @Input() reloadTask = new EventEmitter();
   constructor(
     private authService: AuthService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private notificationService: NotificationService
   ) {
     this.user = JSON.parse(localStorage.getItem('user'))
    }
@@ -39,12 +41,10 @@ export class SidebarComponent implements OnInit, OnChanges {
   async getTasks() {
     const user_id = this.user.user_id;
     this.tasks = await this.taskService.getTasks(user_id)
-    console.log(this.tasks);
-    
+    this.notificationService.createIconNotification('success', 'Felicitaciones', 'Se cargaron las tareas', 'bottomRight')
   }
 
   selectTask(task: Task){
-    console.log(task);
     localStorage.setItem('taskSelected', JSON.stringify(task))
     this.sendTaskSelected.emit(task)
   }

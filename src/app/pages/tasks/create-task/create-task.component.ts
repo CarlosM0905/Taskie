@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/models/task.model';
+import { NotificationService } from 'src/app/services/notification.service';
 import { TaskService } from 'src/app/services/task.service';
 
 
@@ -28,7 +29,8 @@ export class CreateTaskComponent implements OnInit, OnChanges {
   user; 
   constructor(
     private formBuilder: FormBuilder,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private notificationService: NotificationService
   ) {
     this.user = JSON.parse(localStorage.getItem('user'));
    }
@@ -78,6 +80,8 @@ export class CreateTaskComponent implements OnInit, OnChanges {
         type: 'update',
         task: task
       })
+
+      this.notificationService.createIconNotification('success', 'Felicidades', 'Se creó la tarea', 'bottomRight')
     }
     else {
       await this.taskService.createTask(this.user.user_id, task, this.fileImage)
@@ -85,6 +89,9 @@ export class CreateTaskComponent implements OnInit, OnChanges {
         type: 'create',
         task: task
       })
+
+      this.notificationService.createIconNotification('success', 'Felicidades', 'Se actualizó la tarea', 'bottomRight')
+
     }
     
     this.formTask.patchValue({
@@ -99,8 +106,9 @@ export class CreateTaskComponent implements OnInit, OnChanges {
 
   async deleteTask(){
     if(this.taskSelected){
-      this.taskService.deleteTask(this.taskSelected.task_id)
+      await this.taskService.deleteTask(this.taskSelected.task_id)
     }
+    this.notificationService.createIconNotification('info', 'Vaya', 'Se eliminó la tarea', 'bottomRight')
 
     this.formTask.patchValue({
       title: '',
