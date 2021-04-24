@@ -14,20 +14,22 @@ export class TasksComponent implements OnInit {
   // component no-task
   public taskSelected: Task;
   public reloadTasks = {};
+  public createTask = {};
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  takeTaskSelected(task: Task){
-    console.log(task);
-    
+  takeTaskSelected(task: Task){    
     this.taskSelected = task;
   }
 
   takeReload(reloadData: any){
-    console.log(reloadData);
     this.reloadTasks = reloadData
+  }
+
+  takeCreateNewTask(createTask:boolean){
+    this.createTask = createTask
   }
 
 }

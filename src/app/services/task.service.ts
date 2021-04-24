@@ -57,9 +57,7 @@ export class TaskService {
     const cloudUrl = 'https://api.cloudinary.com/v1_1/dzoo253yt/upload';
     const formData = new FormData()
     formData.append('upload_preset', 'react-journal-app')
-    formData.append('file', file)
-    console.log(file);
-    
+    formData.append('file', file)    
 
     const {secure_url} = await this.http.post(cloudUrl, formData).toPromise<any>()
     

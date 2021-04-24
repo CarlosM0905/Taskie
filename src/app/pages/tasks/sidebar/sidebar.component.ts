@@ -15,7 +15,8 @@ export class SidebarComponent implements OnInit, OnChanges {
   public user;
   public tasks: Task;
   @Output() sendTaskSelected = new EventEmitter<Task>();
-  @Input() reloadTask = new EventEmitter();
+  @Output() createNewTask = new EventEmitter()
+  @Input() reloadTask;
   constructor(
     private authService: AuthService,
     private taskService: TaskService,
@@ -47,6 +48,13 @@ export class SidebarComponent implements OnInit, OnChanges {
   selectTask(task: Task){
     localStorage.setItem('taskSelected', JSON.stringify(task))
     this.sendTaskSelected.emit(task)
+  }
+
+  emitCreateNewTask(){
+    this.createNewTask.emit({
+      createTask: true,
+      date: new Date().getMilliseconds()
+    });
   }
 
 }

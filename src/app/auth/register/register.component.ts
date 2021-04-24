@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
 
     const responseRegister = await this.authService.register(user);
     this.router.navigateByUrl('/login');
-    console.log(responseRegister);
   }
 
 }

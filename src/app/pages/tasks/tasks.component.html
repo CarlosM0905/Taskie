@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-4">
-        <app-sidebar (sendTaskSelected)="takeTaskSelected($event)" [reloadTask]="reloadTasks"></app-sidebar>
+        <app-sidebar (sendTaskSelected)="takeTaskSelected($event)" [reloadTask]="reloadTasks" (createNewTask)="takeCreateNewTask($event)"></app-sidebar>
     </div>
     <div class="col-8">
-        <app-create-task [taskSelected]="taskSelected" (reloadTasklist)="takeReload($event)"></app-create-task>
+        <app-create-task [taskSelected]="taskSelected" [createTask]="createTask" (reloadTasklist)="takeReload($event)"></app-create-task>
     </div>
 </div>

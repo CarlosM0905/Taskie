@@ -11,10 +11,6 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  // username
-  // password
-  // google
-
   public formLogin: FormGroup;
   constructor(
     private authService: AuthService,
@@ -42,10 +38,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(responseLogin.user))
       this.router.navigateByUrl('/dashboard/tasks');
     }
-
-    console.log(responseLogin);
-
-    
   }
 
 }

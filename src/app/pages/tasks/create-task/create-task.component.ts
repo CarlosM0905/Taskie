@@ -22,6 +22,7 @@ function getBase64(file: File): Promise<string | ArrayBuffer | null> {
 export class CreateTaskComponent implements OnInit, OnChanges {
   
   @Input() taskSelected: Task;
+  @Input() createTask;
   @Output() reloadTasklist = new EventEmitter()
   fileImage: File;
   fileImageUrl: string | ArrayBuffer;
@@ -36,11 +37,21 @@ export class CreateTaskComponent implements OnInit, OnChanges {
    }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes.taskSelected.currentValue) {
+    if(changes.taskSelected?.currentValue) {
       this.formTask.patchValue({
         title: this.taskSelected.task_title,
         description: this.taskSelected.task_description
       })
+    }
+
+    if(changes.createTask?.currentValue){
+      this.formTask?.patchValue({
+        title: '',
+        description: ''
+      })
+      this.fileImage = null;
+      this.fileImageUrl = null
+      this.taskSelected = null
     }
   }
 
@@ -54,13 +65,10 @@ export class CreateTaskComponent implements OnInit, OnChanges {
 
 
   async handleChangeFile(event){
-    console.log(event.target.files);
     const filesImages = event.target.files;
     this.fileImage = filesImages[0]
     const result = await getBase64(this.fileImage);
     this.fileImageUrl = result;
-    console.log(result);
-    
   }
 
   async saveTask(){
@@ -99,9 +107,6 @@ export class CreateTaskComponent implements OnInit, OnChanges {
       description: ''
     })
     this.fileImage = null;
-
-    
-
   }
 
   async deleteTask(){
