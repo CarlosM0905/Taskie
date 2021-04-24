@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Task } from '../models/task.model'
@@ -9,36 +9,48 @@ import { Task } from '../models/task.model'
 export class TaskService {
 
 
-  private URL = `${environment.BACKEND_URL}/tasks` 
+  private URL = `${environment.BACKEND_URL}/tasks`
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  getTasks(){
-
+  async getTasks(user_id: number): Promise<any> {
+    const params = new HttpParams().set('user_id', user_id.toString())
+    return await this.http.get(`${this.URL}`, { params }).toPromise()
   }
 
-  async createTask(user_id: number, task: Task, file: File){
+  async createTask(user_id: number, task: Task, file: File) {
 
-    const image_url = await this.uploadPictureTask(file);
+    try {
+      const image_url = await this.uploadPictureTask(file);
 
+      const body = {
+        user_id,
+        title: task.task_title,
+        description: task.task_description,
+        image_url
+      }
+
+      return await this.http.post(this.URL, body).toPromise();
+    } catch (error) {
+      console.log(error);
+
+    }
+  }
+
+  async updateTask(task_id: number, task: Task) {
     const body = {
-      user_id,
-      title: task.task_title,
       description: task.task_description,
-      image_url
+      title: task.task_title,
+      image_url: task.task_image_url
     }
 
-    return await this.http.post(this.URL, body).toPromise();
+    return await this.http.put(`${this.URL}/${task_id.toString()}`, body).toPromise();
   }
 
-  updateTasks(){
-
-  }
-
-  deleteTask(){
-
+  async deleteTask(task_id: number) {
+    return await this.http.delete(`${this.URL}/${task_id}`).toPromise()
   }
 
   async uploadPictureTask(file: File): Promise<any> {
@@ -46,10 +58,12 @@ export class TaskService {
     const formData = new FormData()
     formData.append('upload_preset', 'react-journal-app')
     formData.append('file', file)
+    console.log(file);
+    
 
-    const {status, data} = (await this.http.post(cloudUrl, formData).toPromise()) as any;
-    if(status === 200){
-      const {secure_url} = data;
+    const {secure_url} = await this.http.post(cloudUrl, formData).toPromise<any>()
+    
+    if (secure_url) {
       return secure_url;
     }
   }

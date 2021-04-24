@@ -14,6 +14,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 
 /*================ CONST ICONS ================*/
@@ -32,7 +33,8 @@ const NG_ZORRO_COMPONENTS = [
   NzFormModule,
   NzButtonModule,
   NzIconModule,
-  NzDividerModule
+  NzDividerModule,
+  NzNotificationModule
 ];
 
 @NgModule({

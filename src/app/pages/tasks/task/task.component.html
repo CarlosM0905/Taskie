@@ -1,13 +1,13 @@
-<nz-card class="my-2 card-task">
+<nz-card class="my-2 card-task" *ngIf="task">
     <div class="row">
         <div class="col-4">
-            <img src="https://bit.ly/3sDTS1D" alt="Image-task" class="img-fluid img-task">
+            <img [src]="task.task_image_url" alt="Image-task" class="img-fluid img-task">
         </div>
         <div class="col-8">
-            <p class="mb-0">Una nueva tarea</p>
+            <p class="mb-0">{{task.task_title}}</p>
             <nz-divider class="m-0"></nz-divider>
             <p class="mb-0">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                {{task.task_description}}
             </p>
         </div>
     </div>

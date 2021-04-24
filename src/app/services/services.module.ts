@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import {AuthService} from './auth.service';
 import {TaskService} from './task.service';
+import {NotificationService} from './notification.service';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -14,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     AuthService,
-    TaskService
+    TaskService,
+    NotificationService
   ]
 })
 export class ServicesModule { }
