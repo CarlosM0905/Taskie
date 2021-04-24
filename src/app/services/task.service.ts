@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { Task } from '../models/task.model'
 
 @Injectable({
@@ -8,16 +7,13 @@ import { Task } from '../models/task.model'
 })
 export class TaskService {
 
-
-  private URL = `${environment.BACKEND_URL}/tasks`
-
   constructor(
     private http: HttpClient,
   ) { }
 
   async getTasks(user_id: number): Promise<any> {
     const params = new HttpParams().set('user_id', user_id.toString())
-    return await this.http.get(`${this.URL}`, { params }).toPromise()
+    return await this.http.get(`/tasks`, { params }).toPromise()
   }
 
   async createTask(user_id: number, task: Task, file: File) {
@@ -32,7 +28,7 @@ export class TaskService {
         image_url
       }
 
-      return await this.http.post(this.URL, body).toPromise();
+      return await this.http.post('/tasks', body).toPromise();
     } catch (error) {
       console.log(error);
 
@@ -46,11 +42,11 @@ export class TaskService {
       image_url: task.task_image_url
     }
 
-    return await this.http.put(`${this.URL}/${task_id.toString()}`, body).toPromise();
+    return await this.http.put(`/tasks/${task_id.toString()}`, body).toPromise();
   }
 
   async deleteTask(task_id: number) {
-    return await this.http.delete(`${this.URL}/${task_id}`).toPromise()
+    return await this.http.delete(`/tasks/${task_id}`).toPromise()
   }
 
   async uploadPictureTask(file: File): Promise<any> {
